@@ -1,16 +1,28 @@
 // import logo from './logo.svg';
-import './App.css';
-import Person from './Person/Person';
-import Header from './Person/Header';
-
+// import './App.css';
+import Header from "./MovieComponents/Header";
+import Movie from  "./MovieComponents/Movie";
+import movies from "./Movie.json"
 function App() {
   return (
-    <div className="App">
+    <div className="App  ">
       <Header></Header>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person>
-     
+
+      <div className="main flex justify-center flex-wrap p-3">
+        {
+          movies.map((element,index) => {
+            console.log(element,index)
+            return(
+            < Movie
+            id={index}
+            title={element.Title}
+            year={element.Year}
+            img={element.Poster}
+            />
+            )
+          })
+        }
+           </div>
     </div>
   );
 }
